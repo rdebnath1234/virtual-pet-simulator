@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Space+Grotesk:wght@400;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-body text-[#1d1d1d] bg-[#f7f7f3];
+  }
+}
+
+@layer components {
+  .page-bg {
+    background: repeating-linear-gradient(90deg, #d7f25a, #d7f25a 120px, #b9e334 120px, #b9e334 240px);
+  }
+  .floor {
+    background: linear-gradient(180deg, #b57540, #9c5a2a);
+  }
+}
