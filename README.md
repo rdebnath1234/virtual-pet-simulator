@@ -69,6 +69,21 @@ npm run dev
 
 ---
 
+## Feature Screenshots
+### 1) Dashboard
+![Dashboard](docs/screenshots/01-dashboard.png)
+
+### 2) Feed Action
+![Feed](docs/screenshots/02-feed.png)
+
+### 3) Play Action
+![Play](docs/screenshots/03-play.png)
+
+### 4) Sleep Action
+![Sleep](docs/screenshots/04-sleep.png)
+
+---
+
 ## Netlify Deployment (Frontend)
 1. Push this project to a Git repository.
 2. In Netlify, create a new site from the repository.
@@ -82,10 +97,10 @@ npm run dev
 
 ---
 
-## Render Deployment (Backend)
+## Railway Deployment (Backend)
 1. Push this project to a Git repository.
-2. In Render, create a new **Web Service** from the repo.
-3. Build settings:
+2. In Railway, create a new project and deploy from the same repo.
+3. Service settings:
    - Root directory: `backend`
    - Build command: `npm install`
    - Start command: `node server.js`
@@ -93,9 +108,7 @@ npm run dev
    - `MONGODB_URI` = your MongoDB Atlas URI
    - `CLIENT_ORIGIN` = your Netlify site URL
    - `PORT` = `5001`
-5. Deploy the service.
-
-A `render.yaml` is included at the repo root to simplify setup.
+5. Deploy and copy the generated Railway public domain.
 
 ---
 
