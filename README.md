@@ -65,6 +65,8 @@ CLIENT_ORIGIN=http://localhost:5173
 PORT=5001
 ```
 
+This repo also includes `backend/.env.example` as the Git-safe template. Copy it to `backend/.env` for local development, but do not commit your real secrets.
+
 #### `frontend/.env`
 ```env
 VITE_API_URL=http://localhost:5001
@@ -130,19 +132,21 @@ npm run dev
 ## Railway Deployment (Backend)
 1. Push this project to a Git repository.
 2. In Railway, create a new project and deploy from the same repo.
-3. Service settings:
-   - Root directory: `backend`
-   - Build command: `npm install`
-   - Start command: `node server.js`
-4. Environment variables:
+3. Select the `backend` folder as the service root.
+4. This repo includes `backend/railway.json`, so Railway can use the backend deploy settings from Git:
+   - Builder: Railpack
+   - Start command: `npm start`
+   - Health check: `/health`
+5. Environment variables:
    - `MONGODB_URI` = your MongoDB Atlas URI
    - `CLIENT_ORIGIN` = your frontend site URL
    - `PORT` = do not set manually on Railway unless required; Railway provides it automatically
-5. The backend exposes:
+6. Do not commit the real `backend/.env` file. Keep secrets in Railway variables only.
+7. The backend exposes:
    - `/` = basic service info
    - `/health` = health check
    - `/api/pet` = pet API
-6. Deploy and copy the generated Railway public domain.
+8. Deploy and copy the generated Railway public domain.
 
 ---
 
