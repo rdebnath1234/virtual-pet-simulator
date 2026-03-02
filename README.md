@@ -44,6 +44,14 @@ In this web development assignment, you will create a Virtual Pet Simulator usin
 
 ---
 
+## Live Demo
+
+- Frontend (Netlify): `https://virtual-cat-pet-simulator.netlify.app`
+- Backend (Railway): `https://virtual-pet-simulator-production.up.railway.app`
+- Health Check: `https://virtual-pet-simulator-production.up.railway.app/health`
+
+---
+
 ## How To Run
 
 ### Environment Variables
@@ -60,6 +68,11 @@ PORT=5001
 #### `frontend/.env`
 ```env
 VITE_API_URL=http://localhost:5001
+```
+
+#### `frontend/.env.production`
+```env
+VITE_API_URL=https://virtual-pet-simulator-production.up.railway.app
 ```
 
 ### 1) Backend
@@ -107,8 +120,9 @@ npm run dev
    - Base directory: `frontend`
    - Build command: `npm run build`
    - Publish directory: `dist`
-4. Set environment variable in Netlify:
-   - `VITE_API_URL` = your Railway backend URL
+4. Production API configuration:
+   - This repo includes `frontend/.env.production` with the Railway backend URL.
+   - If you prefer managing it in Netlify, set `VITE_API_URL` to your Railway backend URL.
 5. Deploy the site.
 
 ---
@@ -123,8 +137,12 @@ npm run dev
 4. Environment variables:
    - `MONGODB_URI` = your MongoDB Atlas URI
    - `CLIENT_ORIGIN` = your frontend site URL
-   - `PORT` = `5001`
-5. Deploy and copy the generated Railway public domain.
+   - `PORT` = do not set manually on Railway unless required; Railway provides it automatically
+5. The backend exposes:
+   - `/` = basic service info
+   - `/health` = health check
+   - `/api/pet` = pet API
+6. Deploy and copy the generated Railway public domain.
 
 ---
 
