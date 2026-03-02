@@ -46,6 +46,22 @@ In this web development assignment, you will create a Virtual Pet Simulator usin
 
 ## How To Run
 
+### Environment Variables
+
+Create these `.env` files before starting the app locally:
+
+#### `backend/.env`
+```env
+MONGODB_URI=mongodb://localhost:27017/virtual-pet
+CLIENT_ORIGIN=http://localhost:5173
+PORT=5001
+```
+
+#### `frontend/.env`
+```env
+VITE_API_URL=http://localhost:5001
+```
+
 ### 1) Backend
 ```bash
 cd "/Users/riyadebnathdas/Desktop/Projects/Virtual Pet Simulator/backend"
@@ -92,7 +108,7 @@ npm run dev
    - Build command: `npm run build`
    - Publish directory: `dist`
 4. Set environment variable in Netlify:
-   - `VITE_API_URL` = your backend URL (Render URL).
+   - `VITE_API_URL` = your Railway backend URL
 5. Deploy the site.
 
 ---
@@ -106,7 +122,7 @@ npm run dev
    - Start command: `node server.js`
 4. Environment variables:
    - `MONGODB_URI` = your MongoDB Atlas URI
-   - `CLIENT_ORIGIN` = your Netlify site URL
+   - `CLIENT_ORIGIN` = your frontend site URL
    - `PORT` = `5001`
 5. Deploy and copy the generated Railway public domain.
 
