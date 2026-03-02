@@ -132,11 +132,8 @@ npm run dev
 ## Railway Deployment (Backend)
 1. Push this project to a Git repository.
 2. In Railway, create a new project and deploy from the same repo.
-3. Select the `backend` folder as the service root.
-4. This repo includes `backend/railway.json`, so Railway can use the backend deploy settings from Git:
-   - Builder: Railpack
-   - Start command: `npm start`
-   - Health check: `/health`
+3. The repo now includes a root-level `Dockerfile`, so Railway can build the backend directly from the Git repo root even if the service root directory is left blank.
+4. If you prefer using a root directory, set Railway Root Directory to `backend`. In that case, Railway will not automatically follow `backend/railway.json`; set the config file path in Railway to `/backend/railway.json` if you want that file to be used.
 5. Environment variables:
    - `MONGODB_URI` = your MongoDB Atlas URI
    - `CLIENT_ORIGIN` = your frontend site URL
