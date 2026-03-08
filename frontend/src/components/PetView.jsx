@@ -24,15 +24,15 @@ const PetView = ({ pet, actionFx }) => {
   const isSleep = actionFx === "sleep" || mood === "sleeping";
 
   return (
-    <div className="relative grid min-h-[320px] place-items-center">
-      <div className="absolute h-60 w-60 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.45),rgba(255,255,255,0))] blur-sm animate-aura" />
+    <div className="relative grid min-h-[240px] place-items-center sm:min-h-[320px]">
+      <div className="absolute h-44 w-44 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.45),rgba(255,255,255,0))] blur-sm animate-aura sm:h-60 sm:w-60" />
       <div
         className={`relative ${moodStyles[mood]} ${isPlay ? "scale-105" : ""} ${isSleep ? "animate-roll" : ""} transition`}
       >
         <img
           src={catImage}
           alt="Cartoon cat"
-          className={`h-52 w-52 rounded-full object-cover filter shadow-[inset_0_-12px_18px_rgba(123,67,26,0.25)] ${
+          className={`h-40 w-40 rounded-full object-cover filter shadow-[inset_0_-12px_18px_rgba(123,67,26,0.25)] sm:h-52 sm:w-52 ${
             isPlay ? "animate-bouncey" : ""
           }`}
         />
@@ -53,8 +53,8 @@ const PetView = ({ pet, actionFx }) => {
           </div>
         )}
       </div>
-      <div className="mt-4 h-7 w-52 rounded-full bg-[#c97a3d] shadow-[inset_0_6px_0_rgba(255,255,255,0.25)]" />
-      <div className="mt-3 flex gap-3 text-xs uppercase tracking-[0.2em] text-[#6d3d17]">
+      <div className="mt-3 h-6 w-40 rounded-full bg-[#c97a3d] shadow-[inset_0_6px_0_rgba(255,255,255,0.25)] sm:mt-4 sm:h-7 sm:w-52" />
+      <div className="mt-3 flex flex-wrap items-center justify-center gap-2 text-[10px] uppercase tracking-[0.18em] text-[#6d3d17] sm:gap-3 sm:text-xs sm:tracking-[0.2em]">
         <span className="font-semibold">{pet.name}</span>
         <span>{pet.state}</span>
       </div>

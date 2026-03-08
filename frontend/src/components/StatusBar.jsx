@@ -7,14 +7,14 @@ const statusColor = (value) => {
 };
 
 const StatusBar = ({ label, value, icon }) => (
-  <div className="rounded-2xl bg-white/85 p-4 shadow-card text-left backdrop-blur">
+  <div className="rounded-2xl bg-white/85 p-3 text-left shadow-card backdrop-blur sm:p-4">
     <div className="flex items-center gap-3">
-      <span className="grid h-10 w-10 place-items-center rounded-2xl bg-white/80 text-xl">
+      <span className="grid h-9 w-9 place-items-center rounded-2xl bg-white/80 text-lg sm:h-10 sm:w-10 sm:text-xl">
         {icon}
       </span>
       <div>
-        <div className="text-sm font-semibold text-neutral-500">{label}</div>
-        <div className="text-2xl font-bold text-neutral-900">{Math.round(value)}</div>
+        <div className="text-xs font-semibold text-neutral-500 sm:text-sm">{label}</div>
+        <div className="text-xl font-bold text-neutral-900 sm:text-2xl">{Math.round(value)}</div>
       </div>
     </div>
     <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/70">

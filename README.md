@@ -19,6 +19,7 @@ In this web development assignment, you will create a Virtual Pet Simulator usin
 2. **User Interface**
    - Engaging UI layout with pet and status indicators.
    - HTML structure + Tailwind CSS styling, animations, and transitions.
+   - Mobile-responsive layout (small phones to desktop) with adaptive grids, spacing, and control sizes.
 
 3. **Pet Interaction**
    - Feed, Play, Sleep actions.
@@ -97,6 +98,14 @@ npm run dev
 1. Click **Feed** → reduces hunger.
 2. Click **Play** → increases happiness, decreases energy.
 3. Click **Sleep** → restores energy, cat rolls over and snoozes.
+
+---
+
+## Responsive UI Notes
+- Mobile-first responsive design is implemented in `App`, `PetView`, `StatusBar`, and `Controls`.
+- On mobile: pet panel is prioritized first, stats and controls stack with touch-friendly spacing.
+- On tablet: stats and controls use multi-column layout for better use of width.
+- On desktop: the original 3-column dashboard layout is preserved.
 
 ---
 

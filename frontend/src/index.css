@@ -5,12 +5,28 @@
 @tailwind utilities;
 
 @layer base {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
   body {
     @apply font-body text-[#1d1d1d] bg-[#f7f7f3];
   }
 }
 
 @layer components {
+  .page {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: grid;
+    justify-items: center;
+    align-content: start;
+    gap: 1rem;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
+
   .page-bg {
     background: repeating-linear-gradient(90deg, #d7f25a, #d7f25a 120px, #b9e334 120px, #b9e334 240px);
   }

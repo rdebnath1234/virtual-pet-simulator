@@ -81,51 +81,51 @@ const App = () => {
   };
 
   if (loading) {
-    return <div className="grid min-h-screen place-items-center font-body text-lg">Waking up your pet...</div>;
+    return <div className="grid min-h-screen place-items-center px-4 text-center font-body text-lg">Waking up your pet...</div>;
   }
 
   if (!pet) {
-    return <div className="grid min-h-screen place-items-center font-body">Unable to load pet. {error}</div>;
+    return <div className="grid min-h-screen place-items-center px-4 text-center font-body">Unable to load pet. {error}</div>;
   }
 
   const typeLabel = petTypes.find((type) => type.key === pet.type)?.label || pet.type;
 
   return (
-    <div className="page page-bg relative">
-      <div className="absolute bottom-0 left-0 right-0 h-64 floor" />
+    <div className="page page-bg relative overflow-hidden px-4 py-4 sm:px-6 sm:py-6 lg:py-8">
+      <div className="absolute bottom-0 left-0 right-0 h-40 sm:h-56 lg:h-64 floor" />
 
-      <header className="relative z-10 flex w-full max-w-5xl flex-wrap items-center justify-between gap-4">
-        <div>
-          <h1 className="font-display text-4xl">Virtual Pet Simulator</h1>
-          <p className="text-sm text-neutral-800">Keep {pet.name} happy, fed, and energized.</p>
+      <header className="relative z-10 flex w-full max-w-6xl flex-wrap items-start justify-between gap-3 sm:gap-4">
+        <div className="max-w-xl">
+          <h1 className="font-display text-3xl leading-tight sm:text-4xl lg:text-5xl">Virtual Pet Simulator</h1>
+          <p className="mt-1 text-xs text-neutral-800 sm:text-sm">Keep {pet.name} happy, fed, and energized.</p>
         </div>
-        <div className="flex gap-3">
-          <span className="rounded-full bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#6d3d17]">
+        <div className="flex flex-wrap gap-2 sm:gap-3">
+          <span className="rounded-full bg-white/80 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#6d3d17] sm:px-4 sm:text-xs sm:tracking-[0.2em]">
             {typeLabel}
           </span>
-          <span className="rounded-full bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#6d3d17]">
+          <span className="rounded-full bg-white/80 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#6d3d17] sm:px-4 sm:text-xs sm:tracking-[0.2em]">
             {pet.state}
           </span>
         </div>
       </header>
 
-      <main className="relative z-10 grid w-full max-w-5xl gap-6 lg:grid-cols-[1.05fr_1.4fr_1.05fr]">
-        <section className="grid gap-4">
+      <main className="relative z-10 mt-2 grid w-full max-w-6xl gap-4 sm:mt-3 sm:gap-6 lg:grid-cols-[1.05fr_1.4fr_1.05fr]">
+        <section className="order-2 grid gap-3 sm:grid-cols-3 sm:gap-4 lg:order-1 lg:grid-cols-1">
           <StatusBar label="Hunger" value={pet.hunger} icon="🍯" />
           <StatusBar label="Happiness" value={pet.happiness} icon="✨" />
           <StatusBar label="Energy" value={pet.energy} icon="⚡" />
         </section>
 
-        <section className="rounded-3xl bg-white/85 p-6 shadow-card backdrop-blur">
+        <section className="order-1 rounded-3xl bg-white/85 p-4 shadow-card backdrop-blur sm:p-6 lg:order-2">
           <PetView pet={pet} actionFx={actionFx} />
         </section>
 
-        <section>
+        <section className="order-3">
           <Controls onAction={handleAction} disabled={busy} />
         </section>
       </main>
 
-      {error && <div className="relative z-10 mt-4 font-semibold text-red-600">{error}</div>}
+      {error && <div className="relative z-10 mt-3 text-sm font-semibold text-red-600 sm:mt-4">{error}</div>}
     </div>
   );
 };
